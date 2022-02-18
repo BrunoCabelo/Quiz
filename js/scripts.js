@@ -86,7 +86,7 @@ $(function(){
         var inputs = ""
 
         for(let a = 0;a < respostasEmbaralhadas.length; a++){
-            inputs += '<input type="radio" name="quiz" value="'+ respostasEmbaralhadas[a] +'">'+ respostasEmbaralhadas[a] +'<br>';
+            inputs += '<input class="radio" type="radio" name="quiz" value="'+ respostasEmbaralhadas[a] +'">'+ respostasEmbaralhadas[a] +'<br>';
         }
 
         html += '<h3>'+ pergunta +'</h3>' +
