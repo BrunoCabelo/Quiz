@@ -14,7 +14,7 @@ body {
     flex-direction: row;
     justify-content: center;
     align-items: center;
-    background-color: #FFFCFF;
+    background-color: #FFFFFF;
     background-repeat: no-repeat;
 }
 
@@ -54,5 +54,31 @@ button:hover {
     padding: 10px;
     width: auto;
     height: auto;
+}
 
+.refresh-loader {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    color: yellow;
+    animation: spin 2s linear infinite;
+}
+
+#acertou {
+    color: rgb(33, 211, 33);
+}
+
+#errou {
+    color: rgb(226, 46, 46);
+}
+
+@keyframes spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
 }

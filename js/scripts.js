@@ -29,11 +29,21 @@ $(function(){
         
         var resp = $("input[name='quiz']:checked").val();
         if(resp == respostaCorreta){
-            alert('Acertou');
-            (nper < 9) ? nper++ : nper = 0;
-            geradorPerguntas();
+           // alert('Acertou');
+            window.setTimeout(()=> {
+                (nper < 9) ? nper++ : nper = 0;
+                geradorPerguntas(spinner);
+                $('#acertou').hide();    
+            },1000) 
+            $('#acertou').show();
+           
+            
         }else{
-            alert('errou');
+            
+            window.setTimeout(()=> {
+                $('#errou').hide();    
+            },1500) 
+            $('#errou').show();
         }
 
         
@@ -42,10 +52,19 @@ $(function(){
     function quiz(data){
         //Pega as questões
         questions = data.results;
-        geradorPerguntas();
+        geradorPerguntas(spinner);
     }
 
-    function geradorPerguntas(){
+    function spinner(response){
+        if(response){
+            response;
+            $('.refresh-loader').hide()
+        }else{
+            $('.refresh-loader').show()
+        }
+    }
+
+    function geradorPerguntas(callback){
         var html = "";
 
         //Separa a pergunta atual
@@ -74,7 +93,7 @@ $(function(){
         '<form>' + inputs + '</form>'+
         '</br>';
 
-        $('#perguntas').html(html);
+        callback($('#perguntas').html(html));
         
        
     };
